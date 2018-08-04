@@ -20,11 +20,11 @@ sidebar-avatar: img/avatar.jpg
 friends: [
     {
         title: "Vinlic官网",
-        href: "http://www.vinlic.com"
+        href: "https://www.vinlic.com/"
     },
     {
         title: "zhangcold",
-        href: "http://zhangcold.gitee.io"
+        href: "https://zhangcold.gitee.io/"
     }
 ]
 
@@ -52,12 +52,61 @@ lazyload:
   onlypost: true
   loadingImg: /img/loading.png
 
+#Live2D Cat
+live2d:
+  enable: true
+  scriptFrom: jsdelivr
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    use: tororo
+  display:
+    position: left
+    width: 110
+    height: 260
+  mobile:
+    show: false
+
+nofollow:
+  enable: true
+  exclude:
+
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+    - markdown-it-emoji
+  anchors:
+    level: 2
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSymbol: '' 
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://vinlic.github.io
+url: https://blog.vinlic.com/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: p/:abbrlink/
 permalink_defaults:
+
+# abbrlink config
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 
 # Directory
 source_dir: source
