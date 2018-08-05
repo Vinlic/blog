@@ -24,7 +24,7 @@ $ cd live2d-widget-models/packages
 
 模型准备完毕。
 
-### 安装
+### 安装hexo-helper-live2d
 
 [hexo-helper-live2d](https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md) 是一个借助Live2D技术在网页展示伪3D形象的Hexo插件
 
@@ -32,7 +32,7 @@ $ cd live2d-widget-models/packages
 $ npm install hexo-helper-live2d --save
 ```
 
-### 配置
+### 配置hexo-helper-live2d
 
 向Hexo的 ``config.yml`` 添加以下配置
 

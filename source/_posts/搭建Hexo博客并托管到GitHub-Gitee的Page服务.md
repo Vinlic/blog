@@ -43,7 +43,7 @@ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（�
 
 安装后可以通过命令行检查npm以及git命令是否可用。
 
-### 安装
+### 安装Hexo
 在命令行使用NPM安装Hexo
 
 ```Shell
@@ -52,7 +52,7 @@ $ npm install -g hexo-cli
 
 npm安装速度慢？<a href="/p/50211/" target="_blank">试试配置npm镜像源为淘宝</a>
 
-### 初始化
+### 初始化Hexo
 在安装后需要建立Hexo项目，先选择一个存放Hexo项目的路径位置，在这个路径下运行``hexo init``命令初始化Hexo项目，这里假设项目名称为Test，接下来都将继续使用这个名称。
 
 ```Shell
@@ -72,7 +72,7 @@ $ npm install
 
 {% asset_img 1.jpg [Hexo项目目录] %}
 
-### 配置
+### 配置Hexo
 Hexo项目的配置文件是 ``_config.yml`` ，使用任意代码编辑器打开这个配置文件，里面默认的Site配置有以下内容，当前只需要修改这部分配置即可。
 
 ```Bash
@@ -96,7 +96,7 @@ deploy:
   branch: master    # Page项目的分支，直接master
 ```
 
-### 测试
+### 测试Hexo
 Hexo项目在建立时默认自带一个 ``landscape`` 主题，如果希望更换其他主题请看下一步，这里在本地先启动Hexo博客试一下效果。
 在Test项目目录中运行：
 

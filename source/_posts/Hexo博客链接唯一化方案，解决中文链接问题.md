@@ -19,7 +19,7 @@ Hexo博客默认是将文章标题用于文章URL的，这会存在一个严重�
 $ npm install hexo-abbrlink --save
 ```
 
-### 配置插件
+### 配置hexo-abbrlink
 修改Hexo的 ``config.yml`` 内的 ``permalink``：
 
 ```Bash
