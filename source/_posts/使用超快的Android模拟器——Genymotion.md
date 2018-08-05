@@ -73,4 +73,13 @@ Genymotion是一款强悍的跨平台Android模拟器，启动速度堪比真机
 ### 添加ARM支持
 简介部分已经介绍过了，Genymotion是使用x86架构的模拟器，虽然变快了，但是并不是一劳永逸的，Genymotion从2.0版本已经移除了ARM支持库，因此无法安装在ARM环境下运行的APP，因此我们需要把ARM支持库给安装回来。
 
-下载 [Genymotion-ARM-Translation.zip](http://www.pc6.com/softview/SoftView_509493.html)
+模拟器Android版本5.0以上：
+
+下载 [ARM_Translation_lollipop.zip](http://www.pc6.com/softview/SoftView_509493.html)
+
+模拟器Android版本5.0以下：
+
+下载 [Genymotion-ARM-Translation.zip]()
+
+> 下载后注意不要解压！
+
