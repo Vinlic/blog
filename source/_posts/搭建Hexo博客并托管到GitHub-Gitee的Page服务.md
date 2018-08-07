@@ -202,11 +202,48 @@ $ hexo s
 $ hexo d
 ```
 
-如果是部署到GitHub上可能会稍微慢点，耐心等一等就好了。
+如果是部署到GitHub上可能会稍微慢点，耐心等一等就好了，也可以阅读 [解决GitHub git push/clone 速度太慢的问题](/p/7262beec/) 解决慢的问题。
 
 部署完成后就可以通过Page地址访问了，如 xxx.github.io 或 xxx.gitee.io :smiling_imp:。
 
+在这之后，你就可以通过 ``hexo new [文章名]`` 命令新建文章
+
+```Shell
+$ hexo new "测试文章"
+```
+
+文章存储在Hexo项目目录里的 ``source/_posts`` 内，文章文件类型是 ``md`` （markdown文件），建议使用markdown编辑器编辑，博主是使用 MarkdownPad2。
+
+{% asset_img 2.jpg [MarkDown] %}
+
+然后编辑文章保存后就可以生成并发布了。
+
+```Shell
+$ hexo g
+$ hexo d
+```
+
+发布后访问你的Page域名就可以查看了。
+
 每个主题都有不同的特性，可以细读主题文档，发掘更多主题的功能，Hexo拥有许多的插件可选，插件也有对应的文档指导如何安装和配置插件，可以尝试安装插件，下载插件请访问[Hexo官网插件下载](https://hexo.io/plugins/)。
 
-如果一切工作都完成后，建议将Hexo文章链接唯一化，请参考：[
-Hexo博客链接唯一化方案，解决中文链接问题](/p/18664/)
+如果一切工作都完成后，建议将Hexo文章链接唯一化，请参考：[Hexo博客链接唯一化方案，解决中文链接问题](/p/18664/)
+
+### 多平台部署
+Hexo支持部署到多个代码托管平台，如果你希望部署博客到多个平台，比如博主目前使用 GitHub 和 Coding 两个代码托管平台的Page服务，那么就可以像下面这样修改Hexo配置文件 ``_config.yml`` 。
+
+```Bash
+deploy:
+  type: git
+  repo: 
+    coding: https://git.coding.net/xxx/xxx.coding.me.git    # Coding仓库地址
+    github: https://github.com/xxx/xxx.github.io.git    # GitHub仓库地址
+  branch: master
+```
+
+修改配置保存后，重新生成并部署，这样每次都会同时部署到两个平台上了:relieved:。
+
+```Shell
+$ hexo g
+$ hexo s
+```

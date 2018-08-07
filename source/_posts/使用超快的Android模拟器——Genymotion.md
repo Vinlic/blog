@@ -3,6 +3,7 @@ title: 使用超快的Android模拟器——Genymotion
 abbrlink: b5e44cfa
 date: 2018-08-04 23:56:19
 tags:
+  - Android
 ---
 
 ### 简介
@@ -70,16 +71,70 @@ Genymotion是一款强悍的跨平台Android模拟器，启动速度堪比真机
 
 {% asset_img 12.gif 启动模拟器 %}
 
+### 配置ADB
+Genymotion默认的工具包是没有提供ADB支持的，想要使用ADB，就得配置为本机的Android SDK。
+
+还没下载Android SDK？[点击下载Android SDK 24.4.1](https://dl.google.com/android/installer_r24.4.1-windows.exe?utm_source=androiddevtools&utm_medium=website) （强烈建议不要用迅雷下载，为了避免再出现类似 [XcodeGhost](https://www.zhihu.com/question/35721299) 事件）
+
+下载完成安装后，进入Android SDK安装目录，打开 ``SDK Manager``，确保这三个工具都已安装，如果未安装请选中它们并点击右下角的 ``Install packages`` 同意协议并安装，如果安装工具缓慢或失败请百度解决。
+
+{% asset_img 15.jpg 配置ADB %}
+
+打开Genymotion导航栏的 ``Setting`` 并切换到 ``ADB`` 选项卡，改成 ``Use custom Android SDK tools`` 。
+
+点击 ``Browse`` 找到Android SDK安装目录（如 ``android-sdk-windows`` 文件夹），选择此文件夹，如果下面显示 ``Android SDK tools found successfully`` 就成功了，如果显示错误请尝试搜索错误内容自行解决问题。
+
+{% asset_img 16.jpg 配置ADB %}
+
+使用ADB需要配置Android SDK环境变量，你可能已经配置过，如果还未配置此环境变量请查看此教程：[如何配置Android SDK环境变量](https://jingyan.baidu.com/article/15622f2434bc5cfdfcbea51c.html)
+
+配置完毕后请打开 ``cmd`` 输入 ``adb`` 命令回车运行，查看是否可用，可用即为配置成功。
+
+{% asset_img 17.jpg 配置ADB %}
+
+然后重启一下模拟器。
+
 ### 添加ARM支持
 简介部分已经介绍过了，Genymotion是使用x86架构的模拟器，虽然变快了，但是并不是一劳永逸的，Genymotion从2.0版本已经移除了ARM支持库，因此无法安装在ARM环境下运行的APP，因此我们需要把ARM支持库给安装回来。
 
-模拟器Android版本5.0以上：
-
-下载 [ARM_Translation_lollipop.zip](http://www.pc6.com/softview/SoftView_509493.html)
-
-模拟器Android版本5.0以下：
-
-下载 [Genymotion-ARM-Translation.zip]()
+下载 [Genymotion-ARM-Translation_v2.0.zip](https://github.com/Vinlic/blog/raw/master/files/Genymotion-ARM-Translation_v2.0.zip)
 
 > 下载后注意不要解压！
 
+将压缩包拖入开启的Android模拟器界面。
+
+{% asset_img 13.jpg 安装ARM支持库 %}
+
+拖拽后会有两种情况：
+
+第一种：弹出安装询问弹框，这种情况直接点击 ``OK`` 就会进行安装，接着会询问是否重启模拟器点击 ``OK``。
+
+第二种：只出现 ``File successfully copied to:/sdcard/Download`` 弹框，这时候就需要手动进行安装了，博主遇到的就是这种情况。
+
+{% asset_img 14.jpg 安装ARM支持库 %}
+
+先手动上传压缩包，启动 ``cmd`` 进入刚刚下载的压缩包的文件夹，并输入 ``adb push Genymotion-ARM-Translation_v2.0.zip /sdcard/Download`` 命令运行，以下演示的命令是在博主电脑上的，压缩包放在桌面。
+
+```Bash
+C:\Users\Vinlic-PC> cd Desktop 
+C:\Users\Vinlic-PC\Desktop> adb push Genymotion-ARM-Translation_v2.0.zip /sdcard/Download
+```
+
+等待上传完成后运行 ``adb shell flash-archive.sh /sdcard/Download/Genymotion-ARM-Translation_v2.0.zip`` 命令，安装ARM支持库。
+
+```Bash
+C:\Users\Vinlic-PC\Desktop> adb shell flash-archive.sh /sdcard/Download/Genymotion-ARM-Translation_v2.0.zip
+```
+
+安装成功后就可以重启模拟器了。
+
+{% asset_img 18.jpg 安装ARM支持库 %}
+
+重启完成后就可以自由安装了。
+
+### ARM程序移植
+APP安装虽然是解决了，但是对于一些在命令行运行的基于arm架构的binary文件时会出现 ``cannot execute binary file`` 等类似问题。
+
+针对这类问题，一般会采用交叉编译移植的方法。
+
+具体操作流程请看：[通过交叉编译移植基于arm平台程序到x86平台](http://localhost:4000/p/9cbe3a39/)
