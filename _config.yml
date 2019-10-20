@@ -18,10 +18,10 @@ sidebar-avatar: img/avatar.jpg
 
 # Friends
 friends: [
-    {
-        title: "Vinlic官网",
-        href: "https://www.vinlic.com/"
-    },
+    # {
+    #     title: "Vinlic官网",
+    #     href: "https://www.vinlic.com/"
+    # },
     {
         title: "zhangcold",
         href: "https://zhangcold.gitee.io/"
@@ -41,7 +41,7 @@ post_style:
   indent: indent
 
 comment:
-  type: gitment
+  type: gitalk
   id: ec44ee167ef2ea0f98f4
   secret: 5031b6a9158c6e77b4467004189ddb00517c44a8
   owner: Vinlic
@@ -53,22 +53,22 @@ lazyload:
   loadingImg: /img/loading.png
 
 #Live2D Cat
-live2d:
-  enable: true
-  scriptFrom: jsdelivr
-  pluginRootPath: live2dw/
-  pluginJsPath: lib/
-  pluginModelPath: assets/
-  tagMode: false
-  log: false
-  model:
-    use: tororo
-  display:
-    position: left
-    width: 110
-    height: 260
-  mobile:
-    show: false
+# live2d:
+#   enable: false
+#   scriptFrom: jsdelivr
+#   pluginRootPath: live2dw/
+#   pluginJsPath: lib/
+#   pluginModelPath: assets/
+#   tagMode: false
+#   log: false
+#   model:
+#     use: tororo
+#   display:
+#     position: left
+#     width: 110
+#     height: 260
+#   mobile:
+#     show: false
 
 nofollow:
   enable: true
@@ -174,8 +174,8 @@ theme: air
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
-  repo:
-    coding: https://git.coding.net/Vinlic/vinlic.coding.me.git,master
-    github: https://github.com/Vinlic/vinlic.github.io.git,master
+#- type: git
+# repo:
+#   # coding: https://git.coding.net/Vinlic/vinlic.coding.me.git,master
+#   github: https://github.com/Vinlic/vinlic.github.io.git,master
 - type: baidu_url_submitter

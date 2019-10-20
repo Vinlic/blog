@@ -59,7 +59,7 @@ $ make
 
 编译完成后，会在 ``tcpdump-4.9.2`` 文件夹里生成一个 ``tcpdump`` 文件，可以通过 ``file`` 命令查看。
 
-```
+```Shell
 $ file tcpdump
 ```
 
